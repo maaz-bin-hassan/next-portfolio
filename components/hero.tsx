@@ -88,7 +88,7 @@ export const Hero = () => {
             {/* Floating Firebase Logo */}
             <div className="absolute -right-12 -top-4 animate-float-delayed">
               <img
-                src="/firebase.svg"
+                src="/flutter.svg"
                 alt="Firebase"
                 className="h-12 w-12 opacity-80"
               />
@@ -104,7 +104,7 @@ export const Hero = () => {
             {/* Floating Flutter Logo */}
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 animate-float">
               <img
-                src="/flutter.svg"
+                src="/firebase.svg"
                 alt="Flutter"
                 className="h-14 w-14 opacity-80"
               />
