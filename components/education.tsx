@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Education } from "@/data";
 
 export const EducationSection = () => {
@@ -19,9 +20,11 @@ export const EducationSection = () => {
               {/* University Logo */}
               <div className="mb-6 flex-shrink-0 lg:mb-0 lg:mr-8">
                 <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white/5 p-2 lg:h-32 lg:w-32">
-                  <img
+                  <Image
                     src={edu.icon}
                     alt={edu.institution}
+                    width={128}
+                    height={128}
                     className="h-full w-full object-contain"
                   />
                 </div>

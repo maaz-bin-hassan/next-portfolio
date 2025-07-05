@@ -257,5 +257,5 @@ export const socialMedia = [
 export const techStack = {
   stack1: ["Flutter", "Firebase", "MongoDB", "Dart", "Node.js", "Express.js"],
   stack2: ["React.js", "Next.js", "Typescript"],
-  
 } as const;
+

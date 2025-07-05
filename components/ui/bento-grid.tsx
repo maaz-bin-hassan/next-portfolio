@@ -3,17 +3,22 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
 
 import { links } from "@/config";
 import { techStack } from "@/data";
-import animationData from "@/data/confetti.json";
 import { cn } from "@/lib/utils";
 
 import { BackgroundGradientAnimation } from "./background-gradient-animation";
 import { MagicButton } from "./magic-button";
 
 import { GridGlobe } from "../grid-globe";
+
+// Dynamically import Player from @lottiefiles/react-lottie-player
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false }
+);
 
 export const BentoGrid = ({
   className,
@@ -54,10 +59,17 @@ export const BentoGridItem = ({
   spareImg?: string;
 }) => {
   const [copied, setCopied] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(links.ownerEmail);
-    setCopied(true);
+    if (typeof navigator !== "undefined") {
+      navigator.clipboard.writeText(links.ownerEmail);
+      setCopied(true);
+    }
   };
 
   useEffect(() => {
@@ -159,23 +171,18 @@ export const BentoGridItem = ({
             </div>
           )}
 
-          {id === 6 && (
+          {id === 6 && isMounted && (
             <div className="group relative mt-5">
-              <button
-                tabIndex={-1}
-                className="pointer-events-none absolute -bottom-5 right-0 cursor-default"
-              >
-                <Lottie
-                  options={{
-                    loop: copied,
-                    autoplay: copied,
-                    animationData,
-                    rendererSettings: {
-                      preserveAspectRatio: "xMidYMid slice",
-                    },
-                  }}
-                />
-              </button>
+              {copied && (
+                <div className="pointer-events-none absolute -bottom-5 right-0">
+                  <Player
+                    autoplay
+                    loop={false}
+                    src="/confetti.json"
+                    style={{ height: "100px", width: "100px" }}
+                  />
+                </div>
+              )}
 
               <MagicButton
                 title={copied ? "Email copied!" : "Copy my email"}

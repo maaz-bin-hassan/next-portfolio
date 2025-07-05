@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Certifications } from "@/data";
 
 export const CertificationsSection = () => {
@@ -18,9 +19,11 @@ export const CertificationsSection = () => {
             <div className="relative z-10 flex flex-col items-center text-center">
               {/* Certification Provider Logo */}
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/10 p-2">
-                <img
+                <Image
                   src={cert.icon}
                   alt={cert.provider}
+                  width={64}
+                  height={64}
                   className="h-full w-full object-contain"
                 />
               </div>

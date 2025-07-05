@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FaLocationArrow } from "react-icons/fa6";
 import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
 
@@ -78,35 +79,44 @@ export const Hero = () => {
           <div className="relative flex items-center justify-center">
             {/* Floating React Logo */}
             <div className="absolute -left-16 -top-8 animate-float">
-              <img
+              <Image
                 src="/re.svg"
                 alt="React"
-                className="h-16 w-16 animate-spin-slow opacity-80"
+                width={64}
+                height={64}
+                className="animate-spin-slow opacity-80"
               />
             </div>
             
             {/* Floating Firebase Logo */}
             <div className="absolute -right-12 -top-4 animate-float-delayed">
-              <img
+              <Image
                 src="/flutter.svg"
-                alt="Firebase"
-                className="h-12 w-12 opacity-80"
+                alt="Flutter"
+                width={48}
+                height={48}
+                className="opacity-80"
               />
             </div>
             
             {/* Main Profile Image */}
-            <img
+            <Image
               src="/pic.png"
               alt="Profile"
-              className="h-80 w-80 rounded-full object-cover shadow-2xl"
+              width={320}
+              height={320}
+              className="rounded-full object-cover shadow-2xl"
+              priority
             />
             
             {/* Floating Flutter Logo */}
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 animate-float">
-              <img
+              <Image
                 src="/firebase.svg"
-                alt="Flutter"
-                className="h-14 w-14 opacity-80"
+                alt="Firebase"
+                width={56}
+                height={56}
+                className="opacity-80"
               />
             </div>
           </div>

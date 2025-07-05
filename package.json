@@ -78,6 +78,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@lottiefiles/react-lottie-player": "^3.6.0",
     "@react-three/drei": "^9.105.6",
     "@react-three/fiber": "^8.16.6",
     "clsx": "^2.1.1",

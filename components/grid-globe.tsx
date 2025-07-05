@@ -4,6 +4,11 @@ import dynamic from "next/dynamic";
 
 const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
   ssr: false,
+  loading: () => (
+    <div className="flex h-72 w-full items-center justify-center md:h-full">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-purple border-t-transparent"></div>
+    </div>
+  ),
 });
 
 export const GridGlobe = () => {
@@ -29,6 +34,7 @@ export const GridGlobe = () => {
     autoRotate: true,
     autoRotateSpeed: 0.5,
   };
+
   const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
   const sampleArcs = [
     {
@@ -398,7 +404,7 @@ export const GridGlobe = () => {
       <div className="relative mx-auto h-96 w-full max-w-7xl overflow-hidden px-4">
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent to-white dark:to-black" />
         <div className="absolute z-10 h-72 w-full md:h-full">
-          <World data={sampleArcs} globeConfig={globeConfig} />;
+          <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
       </div>
     </div>
