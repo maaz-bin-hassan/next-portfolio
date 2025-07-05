@@ -18,7 +18,7 @@ export const CertificationsSection = () => {
             
             <div className="relative z-10 flex flex-col items-center text-center">
               {/* Certification Provider Logo */}
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/10 p-2">
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/90 p-2 shadow-lg">
                 <Image
                   src={cert.icon}
                   alt={cert.provider}

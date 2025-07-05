@@ -19,7 +19,7 @@ export const EducationSection = () => {
             <div className="relative z-10 flex w-full flex-col items-center lg:flex-row lg:items-start">
               {/* University Logo */}
               <div className="mb-6 flex-shrink-0 lg:mb-0 lg:mr-8">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white/5 p-2 lg:h-32 lg:w-32">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white/90 p-2 shadow-lg lg:h-32 lg:w-32">
                   <Image
                     src={edu.icon}
                     alt={edu.institution}
