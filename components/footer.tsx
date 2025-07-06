@@ -21,8 +21,8 @@ export const Footer = () => {
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
+          Ready to take <span className="text-purple">your</span> Idea
+          to a Fully Functional Mobile Application?
         </h1>
 
         <p className="my-5 text-center text-white-200 md:mt-10">
@@ -57,9 +57,7 @@ export const Footer = () => {
             Maaz Bin Hassan
           </Link>{" "}
           |{" "}
-          <Link href={links.sourceCode} className="underline">
-            Source Code
-          </Link>
+          All rights reserved.
         </p>
 
         <div className="flex items-center gap-6 md:gap-3">
