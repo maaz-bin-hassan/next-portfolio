@@ -77,8 +77,8 @@ export const projects = [
     id: 5,
     title: "UNI-verse FYP - Collaborative University Communication Platform",
     des: "A Student communication app with real-time notifications, Social media like posts and job opportunities.",
-    img: "/p5.png",
-    iconLists: ["/flutter.svg", "/firebase.svg", "/huggingface.svg", "/cloud.svg"],
+    img: "/p5.svg",
+    iconLists: ["/flutter.png", "/firebase.svg", "/huggingface.svg", "/cloud.svg"],
     sourceCode: "https://github.com/maaz-bin-hassan/FYP-UNI-verse-F21",
   },
   {
@@ -121,16 +121,16 @@ export const projects = [
     id: 6,
     title: "Note-Heaven APP",
     des: "AI powered note taking app . Built with flutter and gemini API with firebase as storage capable of holding notes recording audios and drawings and instant share with same network",
-    img: "/p6.png",
-     iconLists: ["/flutter.svg", "/firebase.svg", "/cloud.svg"],
+    img: "/p6.svg",
+     iconLists: ["/flutter.png", "/firebase.svg", "/cloud.svg"],
     sourceCode: "https://github.com/maaz-bin-hassan/NoteHeaven",
   },
   {
     id: 7,
     title: "Custom sales and inventory management App",
     des: "Created a custom sales and inventory management app for a client, using Flutter and Firebase, with features like real-time updates, user authentication, and data analytics.",
-    img: "/p7.png",
-    iconLists: ["/flutter.svg", "/firebase.svg", "/huggingface.svg", "/cloud.svg"],
+    img: "/p7.svg",
+    iconLists: ["/flutter.png", "/firebase.svg", "/huggingface.svg", "/cloud.svg"],
     sourceCode: "https://github.com/maaz-bin-hassan/muzamil_communication",
   },
 ] as const;
@@ -156,7 +156,7 @@ export const Certifications = [
     id: 3,
     title: "Blockchain Specialization",
     provider: "Coursera", 
-    year: "2024",
+    year: "2025",
     icon: "/Coursera.png",
     description: "Comprehensive specialization covering blockchain technology, smart contracts, and decentralized applications."
   }

@@ -92,7 +92,7 @@ export const Hero = () => {
             {/* Floating Flutter Logo */}
             <div className="absolute -right-6 -top-2 lg:-right-12 lg:-top-4 animate-float-delayed">
               <Image
-                src="/flutter.svg"
+                src="/flutter.png"
                 alt="Flutter"
                 width={36}
                 height={36}
