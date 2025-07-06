@@ -100,6 +100,30 @@ export const Hero = () => {
                 unoptimized
               />
             </div>
+
+            {/* Floating Next.js Logo */}
+            <div className="absolute -left-2 top-8 lg:-left-4 lg:top-16 animate-float">
+              <Image
+                src="/next.svg"
+                alt="Next.js"
+                width={32}
+                height={32}
+                className="lg:w-10 lg:h-10 opacity-80"
+                unoptimized
+              />
+            </div>
+
+            {/* Floating JavaScript Logo */}
+            <div className="absolute -right-2 top-6 lg:-right-4 lg:top-12 animate-float-delayed">
+              <Image
+                src="/js.svg"
+                alt="JavaScript"
+                width={28}
+                height={28}
+                className="lg:w-8 lg:h-8 opacity-80"
+                unoptimized
+              />
+            </div>
             
             {/* Main Profile Image */}
             <Image
