@@ -102,7 +102,7 @@ export const Hero = () => {
             </div>
 
             {/* Floating Next.js Logo */}
-            <div className="absolute -left-2 top-8 lg:-left-4 lg:top-16 animate-float">
+            <div className="absolute -left-2 top-16 lg:-left-4 lg:top-32 animate-float">
               <Image
                 src="/next.svg"
                 alt="Next.js"
@@ -114,13 +114,37 @@ export const Hero = () => {
             </div>
 
             {/* Floating JavaScript Logo */}
-            <div className="absolute -right-2 top-6 lg:-right-4 lg:top-12 animate-float-delayed">
+            <div className="absolute -right-2 top-14 lg:-right-4 lg:top-28 animate-float-delayed">
               <Image
                 src="/js.svg"
                 alt="JavaScript"
                 width={28}
                 height={28}
                 className="lg:w-8 lg:h-8 opacity-80"
+                unoptimized
+              />
+            </div>
+
+            {/* Floating Python Logo */}
+            <div className="absolute -left-3 bottom-8 lg:-left-6 lg:bottom-16 animate-float">
+              <Image
+                src="/py.svg"
+                alt="Python"
+                width={30}
+                height={30}
+                className="lg:w-9 lg:h-9 opacity-80"
+                unoptimized
+              />
+            </div>
+
+            {/* Floating Java Logo */}
+            <div className="absolute -right-3 bottom-6 lg:-right-6 lg:bottom-12 animate-float-delayed">
+              <Image
+                src="/an.svg"
+                alt="Java"
+                width={26}
+                height={26}
+                className="lg:w-7 lg:h-7 opacity-80"
                 unoptimized
               />
             </div>
