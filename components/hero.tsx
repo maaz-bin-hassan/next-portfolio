@@ -27,7 +27,7 @@ export const Hero = () => {
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black-100" />
       </div>
 
-      <div className="relative z-10 my-20 flex justify-center">
+      <div className="relative z-10 my-20 flex flex-col lg:flex-row justify-center items-center lg:items-start">
         <div className="flex max-w-[89vw] flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]">
           <h2 className="max-w-80 text-center text-xs uppercase tracking-widest text-blue-100">
             Dynamic Flutter App Developer
@@ -74,28 +74,30 @@ export const Hero = () => {
           </Link>
         </div>
 
-        {/* Profile Image Section with Floating Elements */}
-        <div className="relative ml-8 hidden lg:block">
+        {/* Profile Image Section with Floating Elements - Now shows on mobile too */}
+        <div className="relative mt-10 lg:mt-0 lg:ml-8 flex items-center justify-center">
           <div className="relative flex items-center justify-center">
             {/* Floating React Logo */}
-            <div className="absolute -left-16 -top-8 animate-float">
+            <div className="absolute -left-8 -top-4 lg:-left-16 lg:-top-8 animate-float">
               <Image
                 src="/re.svg"
                 alt="React"
-                width={64}
-                height={64}
-                className="animate-spin-slow opacity-80"
+                width={48}
+                height={48}
+                className="lg:w-16 lg:h-16 animate-spin-slow opacity-80"
+                unoptimized
               />
             </div>
             
-            {/* Floating Firebase Logo */}
-            <div className="absolute -right-12 -top-4 animate-float-delayed">
+            {/* Floating Flutter Logo */}
+            <div className="absolute -right-6 -top-2 lg:-right-12 lg:-top-4 animate-float-delayed">
               <Image
                 src="/flutter.svg"
                 alt="Flutter"
-                width={48}
-                height={48}
-                className="opacity-80"
+                width={36}
+                height={36}
+                className="lg:w-12 lg:h-12 opacity-80"
+                unoptimized
               />
             </div>
             
@@ -103,20 +105,22 @@ export const Hero = () => {
             <Image
               src="/pic.png"
               alt="Profile"
-              width={320}
-              height={320}
-              className="rounded-full object-cover shadow-2xl"
+              width={240}
+              height={240}
+              className="lg:w-80 lg:h-80 rounded-full object-cover shadow-2xl"
               priority
+              unoptimized
             />
             
-            {/* Floating Flutter Logo */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 animate-float">
+            {/* Floating Firebase Logo */}
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 lg:-bottom-4 animate-float">
               <Image
                 src="/firebase.svg"
                 alt="Firebase"
-                width={56}
-                height={56}
-                className="opacity-80"
+                width={42}
+                height={42}
+                className="lg:w-14 lg:h-14 opacity-80"
+                unoptimized
               />
             </div>
           </div>
