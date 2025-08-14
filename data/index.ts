@@ -82,6 +82,22 @@ export const projects = [
     sourceCode: "https://github.com/maaz-bin-hassan/FYP-UNI-verse-F21",
   },
   {
+    id: 8,
+    title: "MaazPDF APP - Smart PDF App",
+    des: "A PDF document management system with features like voice notes, annotation, highlighting, and real-time collaboration.",
+    img: "/p8.png",
+    iconLists: ["/flutter.png", "/firebase.svg"],
+    sourceCode: "https://github.com/maaz-bin-hassan/MaazPDF",
+  },
+  {
+    id: 9,
+    title: "Cardify App - Smart Business Card and Contacts",
+    des: "A Smart Business Card and Contacts app",
+    img: "/p9.png",
+    iconLists: ["/flutter.png", "/firebase.svg"],
+    sourceCode: "https://github.com/maaz-bin-hassan/Cardify",
+  },
+  {
     id: 1,
     title: "Gadget Groove - E Commerce Platform",
     des: "A full-stack e-commerce platform with a modern UI, real-time notifications  and a secure payment system.",
@@ -138,6 +154,14 @@ export const projects = [
 export const Certifications = [
   {
     id: 1,
+    title: "Project Management",
+    provider: "Coursera",
+    year: "2025",
+    icon: "/coursera.png",
+    description: "Project Management certification covering essential skills and methodologies."
+  },
+  {
+    id: 2,
     title: "Flutter Masterclass (Dart, APIs, Firebase & More)",
     provider: "Udemy",
     year: "2024",
@@ -145,7 +169,7 @@ export const Certifications = [
     description: "Comprehensive Flutter development course covering Dart, APIs, Firebase integration, and advanced mobile app development techniques."
   },
   {
-    id: 2,
+    id: 3,
     title: "Google Cybersecurity Specialization",
     provider: "Coursera",
     year: "2024",
@@ -153,7 +177,7 @@ export const Certifications = [
     description: "Professional certification in cybersecurity fundamentals, risk management, and security operations."
   },
   {
-    id: 3,
+    id: 4,
     title: "Blockchain Specialization",
     provider: "Coursera", 
     year: "2025",
@@ -225,10 +249,10 @@ export const workExperience = [
   
   {
     id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    title: "Flutter APP Developer",
+    desc: "Developed and maintained user-facing features for mobile applications using Flutter.",
     className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp3.svg",
+    thumbnail: "/exp2.svg",
   },
   {
     id: 4,
@@ -236,6 +260,13 @@ export const workExperience = [
     desc: "Developed and maintained user-facing features using modern frontend technologies.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
+  },
+  {
+    id: 5,
+    title: "QA Engineer",
+    desc: "Conducted thorough testing and debugging of web and mobile applications to ensure high quality and performance.",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
   },
 ] as const;
 

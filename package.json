@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "author": {
-    "name": "Sanidhya Kumar Verma",
-    "email": "sanidhya.verma12345@gmail.com",
-    "url": "https://github.com/sanidhyy"
+    "name": "Maaz Bin Hassan",
+    "email": "maazbinhassan@gmail.com",
+    "url": "https://github.com/maaz-bin-hassan"
   },
   "description": "Modern & Minimalist Next.js Portfolio.",
   "keywords": [
@@ -57,21 +57,21 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sanidhyy/next-portfolio.git"
+    "url": "https://github.com/maaz-bin-hassan/next-portfolio.git"
   },
-  "homepage": "https://github.com/sanidhyy/next-portfolio#readme",
+  "homepage": "https://github.com/maaz-bin-hassan/next-portfolio#readme",
   "bugs": {
-    "url": "https://github.com/sanidhyy/next-portfolio/issues",
-    "email": "sanidhya.verma12345@gmail.com"
+    "url": "https://github.com/maaz-bin-hassan/next-portfolio/issues",
+    "email": "maazbinhassan@gmail.com"
   },
   "funding": [
     {
       "type": "patreon",
-      "url": "https://www.patreon.com/sanidhy"
+      "url": "https://www.patreon.com/maazbinhassan"
     },
     {
       "type": "Buy me a coffee",
-      "url": "https://www.buymeacoffee.com/sanidhy"
+      "url": "https://www.buymeacoffee.com/maazbinhassan"
     }
   ],
   "dependencies": {
