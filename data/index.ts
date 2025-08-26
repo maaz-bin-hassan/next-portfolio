@@ -98,6 +98,15 @@ export const projects = [
     sourceCode: "https://github.com/maaz-bin-hassan/Cardify",
   },
   {
+    id: 10,
+    title: "Oleo Organics - Hair Oil E-commerce Website",
+    des: "A hair oil e-commerce website with modern design, product catalog, and seamless shopping experience.",
+    img: "/P10.jpeg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/next.svg"],
+    link: "https://oleo-organics.vercel.app/",
+    sourceCode: "https://github.com/maaz-bin-hassan/Oleo-Organics",
+  },
+  {
     id: 1,
     title: "Gadget Groove - E Commerce Platform",
     des: "A full-stack e-commerce platform with a modern UI, real-time notifications  and a secure payment system.",
