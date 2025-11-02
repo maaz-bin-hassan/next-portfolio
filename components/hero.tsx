@@ -30,7 +30,7 @@ export const Hero = () => {
       <div className="relative z-10 my-20 flex flex-col lg:flex-row justify-center items-center lg:items-start">
         <div className="flex max-w-[89vw] flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]">
           <h2 className="max-w-80 text-center text-xs uppercase tracking-widest text-blue-100">
-            Dynamic Flutter App Developer
+            Dynamic Mobile App Developer
           </h2>
 
           <TextGenerateEffect
@@ -39,7 +39,7 @@ export const Hero = () => {
           />
 
           <p className="mb-4 text-center text-sm md:text-lg md:tracking-wider lg:text-2xl">
-            Hi, I&apos;m {links.ownerName},  Flutter App developer and Full Stack Developer based in Pakistan.
+            Hi, I&apos;m {links.ownerName},  Mobile App developer and Full Stack Developer based in Pakistan.
           </p>
 
           {/* Social Media Links */}
