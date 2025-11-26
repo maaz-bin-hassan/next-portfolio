@@ -26,6 +26,8 @@ export const EducationSection = () => {
                     width={128}
                     height={128}
                     className="h-full w-full object-contain"
+                    loading="lazy"
+                    quality={75}
                   />
                 </div>
               </div>

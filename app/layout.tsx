@@ -9,7 +9,11 @@ import { ThemeProvider } from "./provider";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
 
 export const viewport: Viewport = {
   themeColor: "#000319",
@@ -21,6 +25,11 @@ export const metadata: Metadata = siteConfig;
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark">
           {children}

@@ -25,6 +25,8 @@ export const Experience = () => {
                 src={experience.thumbnail}
                 alt={experience.title}
                 className="w-16 md:w-20 lg:w-32"
+                loading="lazy"
+                quality={75}
               />
 
               <div className="lg:ms-5">

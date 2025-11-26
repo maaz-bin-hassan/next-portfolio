@@ -86,6 +86,21 @@
   .black-gradient {
     background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
   }
+
+  /* CSS Grid Pattern - replaces heavy SVG */
+  .css-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .css-grid-pattern-dense {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
   
   /* Floating Animations */
   @keyframes float {

@@ -85,7 +85,7 @@ export const Hero = () => {
                 width={48}
                 height={48}
                 className="lg:w-16 lg:h-16 animate-spin-slow opacity-80"
-                unoptimized
+                loading="lazy"
               />
             </div>
             
@@ -97,7 +97,7 @@ export const Hero = () => {
                 width={36}
                 height={36}
                 className="lg:w-12 lg:h-12 opacity-80"
-                unoptimized
+                loading="lazy"
               />
             </div>
 
@@ -109,7 +109,7 @@ export const Hero = () => {
                 width={32}
                 height={32}
                 className="lg:w-10 lg:h-10 opacity-80"
-                unoptimized
+                loading="lazy"
               />
             </div>
 
@@ -121,7 +121,7 @@ export const Hero = () => {
                 width={28}
                 height={28}
                 className="lg:w-8 lg:h-8 opacity-80"
-                unoptimized
+                loading="lazy"
               />
             </div>
 
@@ -133,7 +133,7 @@ export const Hero = () => {
                 width={30}
                 height={30}
                 className="lg:w-9 lg:h-9 opacity-80"
-                unoptimized
+                loading="lazy"
               />
             </div>
 
@@ -145,7 +145,7 @@ export const Hero = () => {
                 width={26}
                 height={26}
                 className="lg:w-7 lg:h-7 opacity-80"
-                unoptimized
+                loading="lazy"
               />
             </div>
             
@@ -157,7 +157,6 @@ export const Hero = () => {
               height={240}
               className="lg:w-80 lg:h-80 rounded-full object-cover shadow-2xl"
               priority
-              unoptimized
             />
             
             {/* Floating Firebase Logo */}
@@ -168,7 +167,7 @@ export const Hero = () => {
                 width={42}
                 height={42}
                 className="lg:w-14 lg:h-14 opacity-80"
-                unoptimized
+                loading="lazy"
               />
             </div>
           </div>

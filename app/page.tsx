@@ -1,14 +1,48 @@
-import { Approach } from "@/components/approach";
-import { Clients } from "@/components/clients";
-import { Experience } from "@/components/experience";
-import { Footer } from "@/components/footer";
-import { Grid } from "@/components/grid";
+import dynamic from "next/dynamic";
+
 import { Hero } from "@/components/hero";
-import { EducationSection } from "@/components/education";
-import { CertificationsSection } from "@/components/certifications";
 import { FloatingNav } from "@/components/ui/floating-nav";
-import { RecentProjects } from "@/components/recent-projects";
 import { navItems } from "@/data";
+
+// Lazy load heavy components
+const Grid = dynamic(() => import("@/components/grid").then((m) => ({ default: m.Grid })), {
+  loading: () => <div className="h-96 animate-pulse bg-black-100" />,
+});
+
+const RecentProjects = dynamic(
+  () => import("@/components/recent-projects").then((m) => ({ default: m.RecentProjects })),
+  { loading: () => <div className="h-96 animate-pulse bg-black-100" /> }
+);
+
+const Clients = dynamic(
+  () => import("@/components/clients").then((m) => ({ default: m.Clients })),
+  { ssr: true }
+);
+
+const Experience = dynamic(
+  () => import("@/components/experience").then((m) => ({ default: m.Experience })),
+  { loading: () => <div className="h-64 animate-pulse bg-black-100" /> }
+);
+
+const EducationSection = dynamic(
+  () => import("@/components/education").then((m) => ({ default: m.EducationSection })),
+  { loading: () => <div className="h-64 animate-pulse bg-black-100" /> }
+);
+
+const CertificationsSection = dynamic(
+  () => import("@/components/certifications").then((m) => ({ default: m.CertificationsSection })),
+  { loading: () => <div className="h-64 animate-pulse bg-black-100" /> }
+);
+
+const Approach = dynamic(
+  () => import("@/components/approach").then((m) => ({ default: m.Approach })),
+  { loading: () => <div className="h-64 animate-pulse bg-black-100" /> }
+);
+
+const Footer = dynamic(
+  () => import("@/components/footer").then((m) => ({ default: m.Footer })),
+  { ssr: true }
+);
 
 const MainPage = () => {
   return (

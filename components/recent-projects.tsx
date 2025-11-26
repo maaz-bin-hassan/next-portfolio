@@ -29,7 +29,7 @@ export const RecentProjects = () => {
                       width={552}
                       src="/bg.png"
                       alt="bg-img"
-                      unoptimized
+                      loading="lazy"
                     />
                   </div>
 
@@ -39,8 +39,7 @@ export const RecentProjects = () => {
                     src={img}
                     alt={title}
                     className="absolute bottom-0 z-10"
-                    unoptimized
-                    priority
+                    loading="lazy"
                   />
                 </div>
 
@@ -68,7 +67,7 @@ export const RecentProjects = () => {
                           src={icon}
                           alt={icon}
                           className="h-4 w-4 object-contain sm:h-6 sm:w-6 lg:p-2 lg:h-full lg:w-full"
-                          unoptimized
+                          loading="lazy"
                         />
                       </div>
                     ))}

@@ -16,6 +16,8 @@ export const Footer = () => {
           className="h-full w-full opacity-50"
           width={1260}
           height={863}
+          loading="lazy"
+          quality={50}
         />
       </div>
 
@@ -75,6 +77,7 @@ export const Footer = () => {
                 alt={`profile-${profile.name}`}
                 width={20}
                 height={20}
+                loading="lazy"
               />
             </Link>
           ))}

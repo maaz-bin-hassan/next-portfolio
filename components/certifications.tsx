@@ -25,6 +25,8 @@ export const CertificationsSection = () => {
                   width={64}
                   height={64}
                   className="h-full w-full object-contain"
+                  loading="lazy"
+                  quality={75}
                 />
               </div>
 
