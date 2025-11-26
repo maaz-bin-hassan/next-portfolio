@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useEffect, useState, useRef } from "react";
 
 const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
   ssr: false,
@@ -12,6 +13,26 @@ const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
 });
 
 export const GridGlobe = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "100px" }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
@@ -400,11 +421,20 @@ export const GridGlobe = () => {
   ];
 
   return (
-    <div className="absolute -left-5 top-36 flex h-full w-full items-center justify-center md:top-40">
+    <div 
+      ref={containerRef}
+      className="absolute -left-5 top-36 flex h-full w-full items-center justify-center md:top-40"
+    >
       <div className="relative mx-auto h-96 w-full max-w-7xl overflow-hidden px-4">
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent to-white dark:to-black" />
         <div className="absolute z-10 h-72 w-full md:h-full">
-          <World data={sampleArcs} globeConfig={globeConfig} />
+          {isVisible ? (
+            <World data={sampleArcs} globeConfig={globeConfig} />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center">
+              <div className="h-8 w-8 animate-spin rounded-full border-2 border-purple border-t-transparent"></div>
+            </div>
+          )}
         </div>
       </div>
     </div>
