@@ -250,8 +250,8 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Web Developer Intern",
-    desc: "Assisted in 4 small  web-based platform using React.js, enhancing interactivity.",
+    title: "Associate Mobile App Developer",
+    desc: "Working as React Native Developer for cross platform mobile app development on multiple projects.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
