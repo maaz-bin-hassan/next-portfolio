@@ -1,10 +1,13 @@
 "use client";
 
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
 import React, { useMemo, useRef } from "react";
 import * as THREE from "three";
 
 import { cn } from "@/lib/utils";
+
+// Extend THREE elements for R3F
+extend({ Mesh: THREE.Mesh, PlaneGeometry: THREE.PlaneGeometry });
 
 export const CanvasRevealEffect = ({
   animationSpeed = 0.4,
@@ -194,7 +197,7 @@ const ShaderMaterial = ({
   uniforms: Uniforms;
 }) => {
   const { size } = useThree();
-  const ref = useRef<THREE.Mesh>();
+  const ref = useRef<THREE.Mesh>(null);
   let lastFrameTime = 0;
 
   useFrame(({ clock }) => {
