@@ -1,12 +1,33 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { MagicButton } from "@/components/ui/magic-button";
 
+// Simple gradient fallback for mobile
+const MobileGradientEffect = ({ color }: { color: string }) => (
+  <div
+    className="absolute inset-0 h-full w-full rounded-3xl opacity-90 transition-opacity duration-300"
+    style={{
+      background: `linear-gradient(135deg, ${color} 0%, ${color}88 50%, ${color}44 100%)`,
+    }}
+  />
+);
+
 export const Approach = () => {
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section className="w-full py-20">
       <h1 className="heading">
@@ -18,39 +39,54 @@ export const Approach = () => {
           title="Planning & Strategy"
           icon={<MagicButton title="Phase 1" asChild />}
           description="We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like App structure, navigation, and content requirements."
+          isMobile={isMobile}
         >
-          <CanvasRevealEffect
-            animationSpeed={5.1}
-            containerClassName="bg-emerald-900"
-          />
+          {isMobile ? (
+            <MobileGradientEffect color="#065f46" />
+          ) : (
+            <CanvasRevealEffect
+              animationSpeed={5.1}
+              containerClassName="bg-emerald-900"
+            />
+          )}
         </Card>
 
         <Card
           title="Deployment & Progress Update"
           icon={<MagicButton title="Phase 2" asChild />}
           description="Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way."
+          isMobile={isMobile}
         >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-black"
-            colors={[
-              [236, 72, 153],
-              [232, 121, 249],
-            ]}
-            dotSize={2}
-          />
+          {isMobile ? (
+            <MobileGradientEffect color="#1f1f1f" />
+          ) : (
+            <CanvasRevealEffect
+              animationSpeed={3}
+              containerClassName="bg-black"
+              colors={[
+                [236, 72, 153],
+                [232, 121, 249],
+              ]}
+              dotSize={2}
+            />
+          )}
         </Card>
 
         <Card
           title="Development & Launch"
           icon={<MagicButton title="Phase 3" asChild />}
           description="This is where the magic happens!  I'll translate everything into functional code, building your App from the ground up."
+          isMobile={isMobile}
         >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-sky-600"
-            colors={[[125, 211, 252]]}
-          />
+          {isMobile ? (
+            <MobileGradientEffect color="#0284c7" />
+          ) : (
+            <CanvasRevealEffect
+              animationSpeed={3}
+              containerClassName="bg-sky-600"
+              colors={[[125, 211, 252]]}
+            />
+          )}
         </Card>
       </div>
     </section>
@@ -62,15 +98,18 @@ type CardProps = {
   description: string;
   icon: React.ReactNode;
   children?: React.ReactNode;
+  isMobile?: boolean;
 };
 
-const Card = ({ title, description, icon, children }: CardProps) => {
+const Card = ({ title, description, icon, children, isMobile }: CardProps) => {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onTouchStart={() => setHovered(true)}
+      onTouchEnd={() => setHovered(false)}
       className="group/canvas-card relative mx-auto flex w-full max-w-sm items-center justify-center rounded-3xl border border-black/[0.2] p-4 dark:border-white/[0.2] lg:h-[35rem]"
     >
       <Icon className="absolute -left-3 -top-3 h-6 w-6 text-black dark:text-white" />
@@ -83,7 +122,8 @@ const Card = ({ title, description, icon, children }: CardProps) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute inset-0 h-full w-full"
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 h-full w-full overflow-hidden rounded-3xl"
           >
             {children}
           </motion.div>
@@ -127,3 +167,4 @@ export const Icon = ({ className, ...props }: any) => {
     </svg>
   );
 };
+

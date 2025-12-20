@@ -50,14 +50,7 @@ export const Footer = () => {
       <div className="relative z-[999] mt-16 flex flex-col items-center justify-between md:flex-row">
         <p className="text-sm font-light md:text-base md:font-normal">
           Copyright &copy; {new Date().getFullYear()}{" "}
-          <Link
-            href=""
-            target="_blank"
-            rel="noreferrer noopener"
-            className="text-purple"
-          >
-            Maaz Bin Hassan
-          </Link>{" "}
+          <span className="text-purple font-medium">Maaz Bin Hassan</span>{" "}
           |{" "}
           All rights reserved.
         </p>
@@ -71,10 +64,11 @@ export const Footer = () => {
               rel="noreferrer noopener"
               className="saturate-180 flex size-10 items-center justify-center rounded-lg border border-black-300 bg-black-200 bg-opacity-75 backdrop-blur-lg backdrop-filter"
               title={profile.name}
+              aria-label={`Visit ${profile.name} profile`}
             >
               <Image
                 src={profile.img}
-                alt={`profile-${profile.name}`}
+                alt={profile.name}
                 width={20}
                 height={20}
                 loading="lazy"

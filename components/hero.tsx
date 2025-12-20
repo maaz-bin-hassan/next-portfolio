@@ -47,18 +47,21 @@ export const Hero = () => {
             <a
               href="https://www.linkedin.com/in/maaz-bin-hassan/"
               className="group flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 transition-all duration-300 hover:bg-blue-600"
+              aria-label="Visit LinkedIn profile"
             >
               <FaLinkedinIn className="h-5 w-5 text-white transition-transform duration-300 group-hover:scale-110" />
             </a>
             <a
               href="https://github.com/maaz-bin-hassan"
               className="group flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 transition-all duration-300 hover:bg-gray-600"
+              aria-label="Visit GitHub profile"
             >
               <FaGithub className="h-5 w-5 text-white transition-transform duration-300 group-hover:scale-110" />
             </a>
             <a
               href="https://www.instagram.com/maazzz.exe/"
               className="group flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 transition-all duration-300 hover:bg-pink-600"
+              aria-label="Visit Instagram profile"
             >
               <FaInstagram className="h-5 w-5 text-white transition-transform duration-300 group-hover:scale-110" />
             </a>
@@ -88,7 +91,7 @@ export const Hero = () => {
                 loading="lazy"
               />
             </div>
-            
+
             {/* Floating Flutter Logo */}
             <div className="absolute -right-6 -top-2 lg:-right-12 lg:-top-4 animate-float-delayed">
               <Image
@@ -148,7 +151,7 @@ export const Hero = () => {
                 loading="lazy"
               />
             </div>
-            
+
             {/* Main Profile Image */}
             <Image
               src="/pic.png"
@@ -158,7 +161,7 @@ export const Hero = () => {
               className="lg:w-80 lg:h-80 rounded-full object-cover shadow-2xl"
               priority
             />
-            
+
             {/* Floating Firebase Logo */}
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 lg:-bottom-4 animate-float">
               <Image

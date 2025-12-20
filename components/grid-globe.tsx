@@ -12,11 +12,59 @@ const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
   ),
 });
 
+// Static fallback for mobile - lightweight gradient animation
+const MobileGlobeFallback = () => (
+  <div className="relative flex h-72 w-full items-center justify-center md:h-full">
+    <div className="relative h-48 w-48 md:h-64 md:w-64">
+      {/* Animated gradient orb */}
+      <div className="absolute inset-0 animate-pulse rounded-full bg-gradient-to-br from-purple-600/30 via-blue-500/20 to-cyan-400/30 blur-xl" />
+      <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-blue-600/40 to-purple-500/40 blur-lg" />
+      <div className="absolute inset-8 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/30" />
+      {/* Globe icon */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <svg
+          className="h-16 w-16 text-purple-400/60"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="10" strokeWidth="1" />
+          <path
+            strokeWidth="1"
+            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+);
+
 export const GridGlobe = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(true); // Default to mobile for SSR
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Detect mobile on mount
   useEffect(() => {
+    const checkMobile = () => {
+      // Consider mobile if width < 768px or if it's a touch device with low memory
+      const mobileWidth = window.innerWidth < 768;
+      const lowMemory = 'deviceMemory' in navigator && (navigator as any).deviceMemory < 4;
+      const touchDevice = 'ontouchstart' in window;
+
+      // Disable 3D on mobile/touch devices or low-memory devices
+      setIsMobile(mobileWidth || (touchDevice && lowMemory));
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Skip intersection observer for mobile
+    if (isMobile) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -32,7 +80,8 @@ export const GridGlobe = () => {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isMobile]);
+
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
@@ -421,14 +470,16 @@ export const GridGlobe = () => {
   ];
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="absolute -left-5 top-36 flex h-full w-full items-center justify-center md:top-40"
     >
       <div className="relative mx-auto h-96 w-full max-w-7xl overflow-hidden px-4">
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent to-white dark:to-black" />
         <div className="absolute z-10 h-72 w-full md:h-full">
-          {isVisible ? (
+          {isMobile ? (
+            <MobileGlobeFallback />
+          ) : isVisible ? (
             <World data={sampleArcs} globeConfig={globeConfig} />
           ) : (
             <div className="flex h-full w-full items-center justify-center">
@@ -440,3 +491,4 @@ export const GridGlobe = () => {
     </div>
   );
 };
+

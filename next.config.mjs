@@ -9,6 +9,20 @@ const nextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
+
+  // Performance optimizations
+  experimental: {
+    optimizePackageImports: [
+      'react-icons',
+      'framer-motion',
+      '@react-three/fiber',
+      '@react-three/drei',
+      'three',
+      '@fortawesome/react-fontawesome',
+      '@fortawesome/free-brands-svg-icons',
+    ],
+  },
 };
 
 export default nextConfig;
+

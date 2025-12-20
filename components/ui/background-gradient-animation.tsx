@@ -37,6 +37,7 @@ export const BackgroundGradientAnimation = ({
 }) => {
   const interactiveRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   const [curX, setCurX] = useState(0);
   const [curY, setCurY] = useState(0);
@@ -45,6 +46,7 @@ export const BackgroundGradientAnimation = ({
 
   useEffect(() => {
     setIsMounted(true);
+    setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
   }, []);
 
   useEffect(() => {
@@ -80,7 +82,10 @@ export const BackgroundGradientAnimation = ({
     thirdColor,
   ]);
 
+  // Only run mouse tracking animation on desktop
   useEffect(() => {
+    if (isMobile) return;
+
     const move = () => {
       if (!interactiveRef.current) {
         return;
@@ -93,14 +98,13 @@ export const BackgroundGradientAnimation = ({
     };
 
     move();
-  }, [curX, curY, tgX, tgY]);
+  }, [curX, curY, tgX, tgY, isMobile]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (interactiveRef.current) {
-      const rect = interactiveRef.current.getBoundingClientRect();
-      setTgX(event.clientX - rect.left);
-      setTgY(event.clientY - rect.top);
-    }
+    if (isMobile || !interactiveRef.current) return;
+    const rect = interactiveRef.current.getBoundingClientRect();
+    setTgX(event.clientX - rect.left);
+    setTgY(event.clientY - rect.top);
   };
 
   const [isSafari, setIsSafari] = useState(false);
@@ -119,6 +123,41 @@ export const BackgroundGradientAnimation = ({
         )}
       >
         <div className={cn("", className)}>{children}</div>
+      </div>
+    );
+  }
+
+  // Simplified mobile version with fewer animated elements
+  if (isMobile) {
+    return (
+      <div
+        className={cn(
+          "absolute left-0 top-0 h-full w-full overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
+          containerClassName
+        )}
+      >
+        <div className={cn("", className)}>{children}</div>
+        <div className="gradients-container h-full w-full blur-lg">
+          {/* Only 2 gradient elements for mobile - reduced CPU usage */}
+          <div
+            className={cn(
+              `absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat]`,
+              `left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
+              `[transform-origin:center_center]`,
+              `animate-first`,
+              `opacity-100`
+            )}
+          />
+          <div
+            className={cn(
+              `absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat]`,
+              `left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
+              `[transform-origin:calc(50%-400px)]`,
+              `animate-second`,
+              `opacity-100`
+            )}
+          />
+        </div>
       </div>
     );
   }
@@ -220,3 +259,4 @@ export const BackgroundGradientAnimation = ({
     </div>
   );
 };
+

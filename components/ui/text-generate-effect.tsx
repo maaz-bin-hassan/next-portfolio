@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, stagger, useAnimate } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -13,19 +13,30 @@ export const TextGenerateEffect = ({
   className?: string;
 }) => {
   const [scope, animate] = useAnimate();
+  const [isMobile, setIsMobile] = useState(true);
   let wordsArray = words.split(" ");
+
   useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-      },
-      {
-        duration: 2,
-        delay: stagger(0.2),
-      }
-    );
-  }, [animate]);
+    setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+  }, []);
+
+  useEffect(() => {
+    // Skip heavy per-word animation on mobile
+    if (isMobile) {
+      // Just show all words immediately with a simple fade
+      animate(
+        "span",
+        { opacity: 1 },
+        { duration: 0.5 }
+      );
+    } else {
+      animate(
+        "span",
+        { opacity: 1 },
+        { duration: 2, delay: stagger(0.2) }
+      );
+    }
+  }, [animate, isMobile]);
 
   const renderWords = () => {
     return (
@@ -54,3 +65,4 @@ export const TextGenerateEffect = ({
     </div>
   );
 };
+
