@@ -15,12 +15,13 @@ export const RecentProjects = () => {
       </h1>
 
       <div className="mt-10 flex flex-wrap items-center justify-center gap-x-24 gap-y-8 p-4">
-        {projects.map(
-          ({ id, des, iconLists, img, link, sourceCode, title }) => {
-            const href = link ?? sourceCode;
+        {projects.map((project) => {
+            const href =
+              ("link" in project ? project.link : undefined) ??
+              ("sourceCode" in project ? project.sourceCode : undefined);
             return (
             <div
-              key={id}
+              key={project.id}
               className="flex h-[32rem] w-[90vw] items-center justify-center sm:h-[41rem] sm:w-[570px] lg:min-h-[32.5rem]"
             >
               <PinContainer
@@ -41,24 +42,24 @@ export const RecentProjects = () => {
                   <Image
                     height={300}
                     width={464}
-                    src={img}
-                    alt={title}
+                    src={project.img}
+                    alt={project.title}
                     className="absolute bottom-0 z-10"
                     loading="lazy"
                   />
                 </div>
 
                 <h1 className="line-clamp-1 text-base font-bold md:text-xl lg:text-2xl">
-                  {title}
+                  {project.title}
                 </h1>
 
                 <p className="line-clamp-2 text-sm font-light lg:text-xl lg:font-normal">
-                  {des}
+                  {project.des}
                 </p>
 
                 <div className="mb-3 mt-7 flex items-center justify-between">
                   <div className="flex items-center">
-                    {iconLists.map((icon, i) => (
+                    {project.iconLists.map((icon, i) => (
                       <div
                         key={icon}
                         className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.2] bg-black sm:h-10 sm:w-10 lg:h-10 lg:w-10"
@@ -79,10 +80,10 @@ export const RecentProjects = () => {
                   </div>
 
                   <div className="flex items-center justify-center">
-                    {sourceCode ? (
+                    {"sourceCode" in project && project.sourceCode ? (
                       <>
                         <Link
-                          href={sourceCode}
+                          href={project.sourceCode}
                           target="_blank"
                           rel="noreferrer noopener"
                           className="flex text-sm text-purple md:text-xs lg:text-xl"
@@ -97,8 +98,7 @@ export const RecentProjects = () => {
               </PinContainer>
             </div>
             );
-          }
-        )}
+          })}
       </div>
     </section>
   );
