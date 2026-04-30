@@ -74,6 +74,20 @@ export const gridItems = [
 
 export const projects = [
   {
+    id: 12,
+    title: "Sahoolat AI",
+    des: "Sahoolat.AI is a voice-first local jobs marketplace for Pakistan where buyers post audio job briefs, workers bid fairly, and AI matches skills, tags, and distance so trusted workers get discovered through reputation and local rank.",
+    img: "/p12.png",
+    iconLists: ["/re.svg", "/postgresql.svg", "/ts.svg", "/mongodb.svg"],
+  },
+  {
+    id: 11,
+    title: "Full-stack web platform",
+    des: "Sahoolat.AI is a voice-first local jobs marketplace for Pakistan where buyers post audio job briefs, workers bid fairly, and AI matches skills, tags, and distance so trusted workers get discovered through reputation and local rank.",
+    img: "/p11.png",
+    iconLists: ["/next.svg", "/ts.svg", "/tail.svg", "/mongodb.svg"],
+  },
+  {
     id: 5,
     title: "UNI-verse FYP - Collaborative University Communication Platform",
     des: "A Student communication app with real-time notifications, Social media like posts and job opportunities.",

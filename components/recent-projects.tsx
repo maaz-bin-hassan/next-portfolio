@@ -16,12 +16,17 @@ export const RecentProjects = () => {
 
       <div className="mt-10 flex flex-wrap items-center justify-center gap-x-24 gap-y-8 p-4">
         {projects.map(
-          ({ id, des, iconLists, img, sourceCode, title }) => (
+          ({ id, des, iconLists, img, link, sourceCode, title }) => {
+            const href = link ?? sourceCode;
+            return (
             <div
               key={id}
               className="flex h-[32rem] w-[90vw] items-center justify-center sm:h-[41rem] sm:w-[570px] lg:min-h-[32.5rem]"
             >
-              <PinContainer title="Visit" href={sourceCode}>
+              <PinContainer
+                title={href ? "Visit" : "Featured"}
+                href={href}
+              >
                 <div className="relative mb-10 flex h-[30vh] w-[80vw] items-center justify-center overflow-hidden sm:h-[40vh] sm:w-[570px]">
                   <div className="relative h-full w-full overflow-hidden bg-[#13162d] lg:rounded-3xl">
                     <Image
@@ -74,21 +79,25 @@ export const RecentProjects = () => {
                   </div>
 
                   <div className="flex items-center justify-center">
-                    <Link
-                      href={sourceCode}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="flex text-sm text-purple md:text-xs lg:text-xl"
-                    >
-                      Source Code
-                    </Link>
-
-                    <FaLocationArrow className="ms-3" color="#cbacf9" />
+                    {sourceCode ? (
+                      <>
+                        <Link
+                          href={sourceCode}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="flex text-sm text-purple md:text-xs lg:text-xl"
+                        >
+                          Source Code
+                        </Link>
+                        <FaLocationArrow className="ms-3" color="#cbacf9" />
+                      </>
+                    ) : null}
                   </div>
                 </div>
               </PinContainer>
             </div>
-          )
+            );
+          }
         )}
       </div>
     </section>
